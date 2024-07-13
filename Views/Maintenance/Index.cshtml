@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MaintenanceManager.Models.MaintenanceTask>
+@{
+    ViewData["Title"] = "Maintenance Tasks";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-action="Schedule" class="btn btn-primary">Schedule New Maintenance Task</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduledDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Machine.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScheduledDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Machine.Name)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
